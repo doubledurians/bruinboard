@@ -107,6 +107,13 @@ Mark tasks [x] when complete. Mark tasks [blocked] with reason if stuck.
 
 ---
 
+- [ ] 4.11 Add Plausible analytics to `app/layout.tsx` — add the Plausible
+           script tag with data-domain set to the production domain. Add custom
+           event tracking for: modal open (event name + source), filter pill
+           click (category), get tickets click, share button click, add to
+           calendar click, view source click. Use plausible() function calls
+           at each interaction point in the relevant components.
+
 ## PHASE 5 — Event detail page and OG tags
 
 - [ ] 5.1  Create `app/events/[id]/page.tsx` — server component, fetches event
