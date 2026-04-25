@@ -22,12 +22,40 @@ Mark tasks [x] when complete. Mark tasks [blocked] with reason if stuck.
 
 ## PHASE 1 — Database
 
-- [ ] 1.1  Run events table SQL in Supabase SQL editor (full SQL in PRD2 Phase 1)
-- [ ] 1.2  Enable Row Level Security on events table
-- [ ] 1.3  Add public read policy: select allowed where status='active'
-           and is_active=true
-- [ ] 1.4  Confirm table and policy work by inserting one test row and querying
-           via anon key — show row count in phase summary
+- [ ] 1.0  Install Supabase CLI as a dev dependency and initialise local project:
+           `npm install supabase --save-dev`
+           `npx supabase init`
+           This creates a `supabase/` folder in the repo with config files.
+           Confirm `supabase/config.toml` exists after running.
+- [ ] 1.1  Create first migration file for the events table:
+           `npx supabase migration new create_events_table`
+           This creates a timestamped file in `supabase/migrations/`.
+           Paste the full events table SQL from PRD2 Phase 1 into that file.
+           Include the table definition, all check constraints, and all three
+           indexes (start_datetime, source, category).
+- [ ] 1.2  Link local project to remote Supabase instance:
+           `npx supabase link --project-ref ypclatwgyccbtcjjyjit`
+           Enter the database password when prompted (found in Supabase
+           dashboard → Settings → Database → Database password).
+- [ ] 1.3  Apply migration to remote Supabase project:
+           `npx supabase db push`
+           Confirm output shows migration applied successfully.
+           Verify in Supabase dashboard → Table Editor that events table
+           exists with all columns.
+- [ ] 1.4  Create second migration file for RLS and public read policy:
+           `npx supabase migration new enable_rls_and_policies`
+           Add SQL to enable RLS on events table and create public read
+           policy: SELECT allowed where status='active' AND is_active=true.
+           Apply with `npx supabase db push`.
+           Confirm policy appears in Supabase dashboard → Authentication →
+           Policies.
+- [ ] 1.5  Insert one test row directly in Supabase dashboard SQL editor
+           and query it via anon key to confirm RLS policy works correctly.
+           Show row count in phase summary.
+- [ ] 1.6  Commit all migration files and supabase config to GitHub:
+           `git add supabase/ && git commit -m "Add database schema migrations"`
+           The supabase/migrations/ folder must be committed — it is the
+           source of truth for the database schema.
 
 ---
 

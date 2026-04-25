@@ -18,8 +18,18 @@ empty project to Vercel and confirm CI pipeline runs on push to main.
 
 ## Phase 1 — Database
 
-Create the following table in Supabase via the SQL editor:
+Use Supabase CLI with local migrations. Every schema change gets a versioned
+migration file committed to the repo. This gives you a reproducible,
+version-controlled database setup.
 
+**Setup:**
+```bash
+npm install supabase --save-dev
+npx supabase init
+npx supabase link --project-ref ypclatwgyccbtcjjyjit
+```
+
+**Migration 1 — Events table** (`create_events_table`):
 ```sql
 create table events (
   id                uuid primary key default gen_random_uuid(),
@@ -46,8 +56,30 @@ create index on events (source);
 create index on events (category);
 ```
 
-Enable Row Level Security. Add a public read policy: select allowed for all
-where `status = 'active'` and `is_active = true`.
+**Migration 2 — RLS and policies** (`enable_rls_and_policies`):
+```sql
+alter table events enable row level security;
+
+create policy "Public read access"
+  on events
+  for select
+  to anon
+  using (status = 'active' and is_active = true);
+```
+
+Apply migrations with `npx supabase db push`.
+All migration files live in `supabase/migrations/` and must be committed to
+the repo. They are the source of truth for the database schema.
+
+**File structure after Phase 1:**
+```
+bruinboard/
+└── supabase/
+    ├── config.toml
+    └── migrations/
+        ├── [timestamp]_create_events_table.sql
+        └── [timestamp]_enable_rls_and_policies.sql
+```
 
 ---
 
