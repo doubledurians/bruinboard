@@ -61,19 +61,19 @@ Mark tasks [x] when complete. Mark tasks [blocked] with reason if stuck.
 
 ## PHASE 2 — Scrapers
 
-- [ ] 2.1  Create `/scrapers` directory with `requirements.txt`:
+- [x] 2.1  Create `/scrapers` directory with `requirements.txt`:
            requests, beautifulsoup4, supabase, python-dateutil
-- [ ] 2.2  Build `scrapers/upsert.py` — shared helper that accepts list of event
+- [x] 2.2  Build `scrapers/upsert.py` — shared helper that accepts list of event
            dicts and upserts to Supabase on url field using service role key
-- [ ] 2.3  Build `scrapers/validate.py` — post-scrape validation script that
+- [x] 2.3  Build `scrapers/validate.py` — post-scrape validation script that
            checks: row count > 0, no null start_datetime, no null title, correct
            source value, warns on past-dated events
-- [ ] 2.4  Build `scrapers/burkle.py` — scrape Burkle events page, extract all
+- [x] 2.4  Build `scrapers/burkle.py` — scrape Burkle events page, extract all
            fields, fetch detail pages for descriptions, call upsert helper
-- [ ] 2.5  Run validate.py after Burkle scraper — show output in summary
-- [ ] 2.6  Build `scrapers/cap.py` — scrape CAP UCLA calendar, extract all
+- [x] 2.5  Run validate.py after Burkle scraper — show output in summary
+- [x] 2.6  Build `scrapers/cap.py` — scrape CAP UCLA calendar, extract all
            fields including ticket_url and price, call upsert helper
-- [ ] 2.7  Run validate.py after CAP scraper — show output in summary
+- [x] 2.7  Run validate.py after CAP scraper — show output in summary
 - [ ] 2.8  Build `scrapers/library.py` — scrape UCLA Library events, skip
            exhibitions without times, map event types to categories,
            call upsert helper

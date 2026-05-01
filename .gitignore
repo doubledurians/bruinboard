@@ -2,6 +2,9 @@
 
 # dependencies
 /node_modules
+/.scraper-deps
+__pycache__/
+*.pyc
 /.pnp
 .pnp.*
 .yarn/*
