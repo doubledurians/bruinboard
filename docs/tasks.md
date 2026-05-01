@@ -82,7 +82,7 @@ Mark tasks [x] when complete. Mark tasks [blocked] with reason if stuck.
            runs all three scrapers in sequence, runs validate.py after each
 - [x] 2.11 Add healthchecks.io ping at end of workflow using HEALTHCHECKS_URL
            GitHub Actions secret
-- [ ] 2.12 Manually trigger workflow in GitHub Actions, confirm it runs
+- [blocked] 2.12 Manually trigger workflow in GitHub Actions, confirm it runs
            end to end — show final log output in summary
 
 ---
