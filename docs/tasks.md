@@ -9,50 +9,50 @@ Mark tasks [x] when complete. Mark tasks [blocked] with reason if stuck.
 
 ## PHASE 0 — Setup
 
-- [ ] 0.1  Initialise Next.js 14 project with App Router:
+- [x] 0.1  Initialise Next.js 14 project with App Router:
            `npx create-next-app@latest bruinboard --typescript --tailwind --app`
-- [ ] 0.2  Install dependencies:
+- [x] 0.2  Install dependencies:
            `npm install @supabase/supabase-js @supabase/ssr date-fns`
-- [ ] 0.3  Create `.env.local` with NEXT_PUBLIC_SUPABASE_URL and
+- [x] 0.3  Create `.env.local` with NEXT_PUBLIC_SUPABASE_URL and
            NEXT_PUBLIC_SUPABASE_ANON_KEY (values provided by user)
-- [ ] 0.4  Confirm AGENTS.md exists in repo root and is unmodified
-- [ ] 0.5  Push to GitHub, connect to Vercel, confirm empty deploy succeeds
+- [x] 0.4  Confirm AGENTS.md exists in repo root and is unmodified
+- [x] 0.5  Push to GitHub, connect to Vercel, confirm empty deploy succeeds
 
 ---
 
 ## PHASE 1 — Database
 
-- [ ] 1.0  Install Supabase CLI as a dev dependency and initialise local project:
+- [x] 1.0  Install Supabase CLI as a dev dependency and initialise local project:
            `npm install supabase --save-dev`
            `npx supabase init`
            This creates a `supabase/` folder in the repo with config files.
            Confirm `supabase/config.toml` exists after running.
-- [ ] 1.1  Create first migration file for the events table:
+- [x] 1.1  Create first migration file for the events table:
            `npx supabase migration new create_events_table`
            This creates a timestamped file in `supabase/migrations/`.
            Paste the full events table SQL from PRD2 Phase 1 into that file.
            Include the table definition, all check constraints, and all three
            indexes (start_datetime, source, category).
-- [ ] 1.2  Link local project to remote Supabase instance:
+- [x] 1.2  Link local project to remote Supabase instance:
            `npx supabase link --project-ref ypclatwgyccbtcjjyjit`
            Enter the database password when prompted (found in Supabase
            dashboard → Settings → Database → Database password).
-- [ ] 1.3  Apply migration to remote Supabase project:
+- [x] 1.3  Apply migration to remote Supabase project:
            `npx supabase db push`
            Confirm output shows migration applied successfully.
            Verify in Supabase dashboard → Table Editor that events table
            exists with all columns.
-- [ ] 1.4  Create second migration file for RLS and public read policy:
+- [x] 1.4  Create second migration file for RLS and public read policy:
            `npx supabase migration new enable_rls_and_policies`
            Add SQL to enable RLS on events table and create public read
            policy: SELECT allowed where status='active' AND is_active=true.
            Apply with `npx supabase db push`.
            Confirm policy appears in Supabase dashboard → Authentication →
            Policies.
-- [ ] 1.5  Insert one test row directly in Supabase dashboard SQL editor
+- [x] 1.5  Insert one test row directly in Supabase dashboard SQL editor
            and query it via anon key to confirm RLS policy works correctly.
            Show row count in phase summary.
-- [ ] 1.6  Commit all migration files and supabase config to GitHub:
+- [x] 1.6  Commit all migration files and supabase config to GitHub:
            `git add supabase/ && git commit -m "Add database schema migrations"`
            The supabase/migrations/ folder must be committed — it is the
            source of truth for the database schema.
@@ -132,15 +132,14 @@ Mark tasks [x] when complete. Mark tasks [blocked] with reason if stuck.
            state (list/calendar), filter state, modal open/close state. Renders
            Nav, hero strip, FilterPills, date-grouped EventCards or CalendarView,
            UIStates, EventModal
-
----
-
 - [ ] 4.11 Add Plausible analytics to `app/layout.tsx` — add the Plausible
            script tag with data-domain set to the production domain. Add custom
            event tracking for: modal open (event name + source), filter pill
            click (category), get tickets click, share button click, add to
            calendar click, view source click. Use plausible() function calls
            at each interaction point in the relevant components.
+
+---
 
 ## PHASE 5 — Event detail page and OG tags
 
