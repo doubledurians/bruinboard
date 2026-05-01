@@ -74,13 +74,13 @@ Mark tasks [x] when complete. Mark tasks [blocked] with reason if stuck.
 - [x] 2.6  Build `scrapers/cap.py` — scrape CAP UCLA calendar, extract all
            fields including ticket_url and price, call upsert helper
 - [x] 2.7  Run validate.py after CAP scraper — show output in summary
-- [ ] 2.8  Build `scrapers/library.py` — scrape UCLA Library events, skip
+- [x] 2.8  Build `scrapers/library.py` — scrape UCLA Library events, skip
            exhibitions without times, map event types to categories,
            call upsert helper
-- [ ] 2.9  Run validate.py after Library scraper — show output in summary
-- [ ] 2.10 Create `.github/workflows/scrape.yml` — daily cron at 6am UTC,
+- [x] 2.9  Run validate.py after Library scraper — show output in summary
+- [x] 2.10 Create `.github/workflows/scrape.yml` — daily cron at 6am UTC,
            runs all three scrapers in sequence, runs validate.py after each
-- [ ] 2.11 Add healthchecks.io ping at end of workflow using HEALTHCHECKS_URL
+- [x] 2.11 Add healthchecks.io ping at end of workflow using HEALTHCHECKS_URL
            GitHub Actions secret
 - [ ] 2.12 Manually trigger workflow in GitHub Actions, confirm it runs
            end to end — show final log output in summary

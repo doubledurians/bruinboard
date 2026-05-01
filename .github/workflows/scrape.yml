@@ -1,0 +1,52 @@
+name: Scrape events
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      HEALTHCHECKS_URL: ${{ secrets.HEALTHCHECKS_URL }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: python -m pip install -r scrapers/requirements.txt
+
+      - name: Scrape Burkle
+        run: python scrapers/burkle.py
+
+      - name: Validate Burkle
+        run: python scrapers/validate.py burkle
+
+      - name: Scrape CAP UCLA
+        run: python scrapers/cap.py
+
+      - name: Validate CAP UCLA
+        run: python scrapers/validate.py cap_ucla
+
+      - name: Scrape UCLA Library
+        run: python scrapers/library.py
+
+      - name: Validate UCLA Library
+        run: python scrapers/validate.py library
+
+      - name: Ping healthchecks success
+        if: success() && env.HEALTHCHECKS_URL != ''
+        run: curl --fail --show-error --silent "$HEALTHCHECKS_URL"
+
+      - name: Ping healthchecks failure
+        if: failure() && env.HEALTHCHECKS_URL != ''
+        run: curl --fail --show-error --silent "$HEALTHCHECKS_URL/fail"
