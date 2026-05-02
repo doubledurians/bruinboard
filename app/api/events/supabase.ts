@@ -17,7 +17,7 @@ export type EventRow = {
   url: string | null;
   ticket_url: string | null;
   price: string | null;
-  category: "academic" | "popup" | "fun" | "workshops" | null;
+  category: "academic" | "popup" | "arts" | "workshops" | null;
   source: "burkle" | "cap_ucla" | "library" | null;
   image_url: string | null;
   is_active: boolean | null;

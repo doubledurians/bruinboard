@@ -14,14 +14,16 @@ LIST_URL = f"{BASE_URL}/visit/events-exhibitions/"
 
 
 def _category_from_type(event_type: str | None) -> str:
-    normalized = (event_type or "").lower()
-    if "workshop" in normalized:
+    normalized = (event_type or "").lower().strip()
+    if normalized in {"workshop", "research workshop", "cornerstone research workshop"}:
         return "workshops"
-    if any(keyword in normalized for keyword in ("screening", "performance")):
-        return "fun"
-    if any(keyword in normalized for keyword in ("presentation", "research")):
+    if normalized == "drop-in activity":
+        return "popup"
+    if normalized in {"presentation", "conference"}:
         return "academic"
-    return "fun"
+    if normalized in {"screening", "performance"}:
+        return "arts"
+    return "academic"
 
 
 def _is_time_line(value: str | None) -> bool:
