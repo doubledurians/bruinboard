@@ -15,7 +15,9 @@ LIST_URL = f"{BASE_URL}/visit/events-exhibitions/"
 
 def _category_from_type(event_type: str | None) -> str:
     normalized = (event_type or "").lower()
-    if any(keyword in normalized for keyword in ("screening", "performance", "workshop")):
+    if "workshop" in normalized:
+        return "workshops"
+    if any(keyword in normalized for keyword in ("screening", "performance")):
         return "fun"
     if any(keyword in normalized for keyword in ("presentation", "research")):
         return "academic"

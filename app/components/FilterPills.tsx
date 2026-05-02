@@ -7,7 +7,7 @@ type FilterPillsProps = {
   onCategoryChange: (category: Category | null) => void;
 };
 
-const CATEGORIES: Category[] = ["academic", "popup", "fun"];
+const CATEGORIES: Category[] = ["academic", "popup", "fun", "workshops"];
 
 export default function FilterPills({ activeCategory, onCategoryChange }: FilterPillsProps) {
   return (

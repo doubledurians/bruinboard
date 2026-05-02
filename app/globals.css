@@ -6,6 +6,7 @@
   --indigo: #1800FF;
   --pink: #FF1A6B;
   --yellow: #FFE100;
+  --workshop: #8A8FA8;
   --black: #0A0A12;
   --gray: #52526A;
   --muted: #8A8A9E;
@@ -23,6 +24,7 @@
   --color-indigo: var(--indigo);
   --color-pink: var(--pink);
   --color-yellow: var(--yellow);
+  --color-workshop: var(--workshop);
   --color-black: var(--black);
   --color-gray: var(--gray);
   --color-muted: var(--muted);

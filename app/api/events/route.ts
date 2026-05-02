@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 import { createSupabaseServerClient } from "./supabase";
 
-const VALID_CATEGORIES = ["academic", "popup", "fun"] as const;
+const VALID_CATEGORIES = ["academic", "popup", "fun", "workshops"] as const;
 const VALID_SOURCES = ["burkle", "cap_ucla", "library"] as const;
 const DEFAULT_WINDOW_DAYS = 60;
 const MAX_WINDOW_DAYS = 90;

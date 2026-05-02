@@ -1,4 +1,4 @@
-export type Category = "academic" | "popup" | "fun";
+export type Category = "academic" | "popup" | "fun" | "workshops";
 export type Source = "burkle" | "cap_ucla" | "library";
 export type ViewMode = "list" | "calendar";
 
@@ -31,6 +31,7 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   academic: "Academic",
   popup: "Pop-up",
   fun: "Fun",
+  workshops: "Workshops",
 };
 
 export const SOURCE_LABELS: Record<Source, string> = {
@@ -45,6 +46,9 @@ export function categoryColor(category: Category | null): string {
   }
   if (category === "popup") {
     return "var(--pink)";
+  }
+  if (category === "workshops") {
+    return "var(--workshop)";
   }
   return "var(--yellow)";
 }

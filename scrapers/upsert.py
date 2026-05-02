@@ -10,7 +10,7 @@ from supabase import Client, create_client
 from utils import load_local_env
 
 
-VALID_CATEGORIES = {"academic", "popup", "fun"}
+VALID_CATEGORIES = {"academic", "popup", "fun", "workshops"}
 VALID_SOURCES = {"burkle", "cap_ucla", "library"}
 WRITABLE_FIELDS = {
     "title",
