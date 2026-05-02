@@ -89,13 +89,13 @@ Mark tasks [x] when complete. Mark tasks [blocked] with reason if stuck.
 
 ## PHASE 3 — API
 
-- [ ] 3.1  Create `app/api/events/route.ts` — GET handler, fetches upcoming
+- [x] 3.1  Create `app/api/events/route.ts` — GET handler, fetches upcoming
            active events from Supabase, accepts category and source query
            params, groups into today/this-week/coming-up buckets server-side,
            caps coming-up at 30 days, returns JSON ordered by start_datetime
-- [ ] 3.2  Create `app/api/events/[id]/route.ts` — GET handler, fetches single
+- [x] 3.2  Create `app/api/events/[id]/route.ts` — GET handler, fetches single
            event by id
-- [ ] 3.3  Test both endpoints — show sample JSON response in phase summary
+- [x] 3.3  Test both endpoints — show sample JSON response in phase summary
 
 ---
 
