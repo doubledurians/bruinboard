@@ -14,6 +14,7 @@ LIST_URL = f"{BASE_URL}/visit/events-exhibitions/"
 
 
 def _category_from_type(event_type: str | None) -> str:
+    print(f"DEBUG _category_from_type called with: {repr(event_type)}", flush=True)
     normalized = (event_type or "").lower().strip()
     if normalized in ("workshop", "research workshop", 
                       "cornerstone research workshop"):
@@ -122,6 +123,7 @@ def _event_from_card(card: BeautifulSoup) -> dict[str, str | None] | None:
         return None
 
     event_type = clean_text(lines[0])
+    print(f"DEBUG event_type={repr(event_type)} -> category={repr(_category_from_type(event_type))}", flush=True)
     title = clean_text(lines[1])
     date_text = clean_text(lines[2])
     time_text = clean_text(lines[3])
