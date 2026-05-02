@@ -101,34 +101,34 @@ Mark tasks [x] when complete. Mark tasks [blocked] with reason if stuck.
 
 ## PHASE 4 — Frontend components
 
-- [ ] 4.1  Set up `app/globals.css` — all CSS variables from PRD3, dot-grid
+- [x] 4.1  Set up `app/globals.css` — all CSS variables from PRD3, dot-grid
            background, Google Fonts import for Space Grotesk and Space Mono
-- [ ] 4.2  Build `app/components/Nav.tsx` — 4-pointed star SVG + wordmark left,
+- [x] 4.2  Build `app/components/Nav.tsx` — 4-pointed star SVG + wordmark left,
            List/Calendar toggle right, sticky, border-bottom
-- [ ] 4.3  Build `app/components/FilterPills.tsx` — three category pills,
+- [x] 4.3  Build `app/components/FilterPills.tsx` — three category pills,
            dashed/solid border toggle on click, horizontal scroll on mobile
-- [ ] 4.4  Build `app/components/EventCard.tsx` — coloured stripe, date column,
+- [x] 4.4  Build `app/components/EventCard.tsx` — coloured stripe, date column,
            title, monospace metadata, badge row (free/paid/RSVP only, no source
            tags). Accepts event object as prop. onClick fires openModal callback
-- [ ] 4.5  Build `app/components/UIStates.tsx` — three exported states:
+- [x] 4.5  Build `app/components/UIStates.tsx` — three exported states:
            LoadingState (animated star cycling brand colours), EmptyState
            (dashed star + clear button), ErrorState (glitch bars + retry button)
-- [ ] 4.6  Build `app/components/AddToCalendarDropdown.tsx` — button that opens
+- [x] 4.6  Build `app/components/AddToCalendarDropdown.tsx` — button that opens
            two-option dropdown: Google Calendar (pre-filled URL, new tab) and
            Download .ics (generates file per PRD4 Journey 5 spec and triggers
            download)
-- [ ] 4.7  Build `app/components/ShareButton.tsx` — uses navigator.share() if
+- [x] 4.7  Build `app/components/ShareButton.tsx` — uses navigator.share() if
            available (mobile), falls back to navigator.clipboard.writeText()
            (desktop), shows 2-second "Link copied" toast on clipboard copy
-- [ ] 4.8  Build `app/components/EventModal.tsx` — centred overlay with greyed
+- [x] 4.8  Build `app/components/EventModal.tsx` — centred overlay with greyed
            background, coloured top stripe, title, 2×2 detail grid, optional
            image, full description, action buttons. Full-width bottom-anchored
            on mobile (< 480px). Closes on ✕ or overlay click
-- [ ] 4.9  Build `app/components/CalendarView.tsx` — monthly grid, black header
+- [x] 4.9  Build `app/components/CalendarView.tsx` — monthly grid, black header
            with month name and prev/next nav, day headers, coloured event dots
            per category, today highlighted with indigo square. Dot click opens
            modal. Mobile: pip labels hidden, dots only
-- [ ] 4.10 Build `app/page.tsx` — fetches events from /api/events, manages view
+- [x] 4.10 Build `app/page.tsx` — fetches events from /api/events, manages view
            state (list/calendar), filter state, modal open/close state. Renders
            Nav, hero strip, FilterPills, date-grouped EventCards or CalendarView,
            UIStates, EventModal

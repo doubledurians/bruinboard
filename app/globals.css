@@ -1,26 +1,70 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #ECECEA;
+  --card: #FFFFFF;
+  --indigo: #1800FF;
+  --pink: #FF1A6B;
+  --yellow: #FFE100;
+  --black: #0A0A12;
+  --gray: #52526A;
+  --muted: #8A8A9E;
+  --border: rgba(10,10,18,0.12);
+  --border-m: rgba(10,10,18,0.24);
+  --background: var(--bg);
+  --foreground: var(--black);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-indigo: var(--indigo);
+  --color-pink: var(--pink);
+  --color-yellow: var(--yellow);
+  --color-black: var(--black);
+  --color-gray: var(--gray);
+  --color-muted: var(--muted);
   --font-sans: var(--font-space-grotesk);
   --font-mono: var(--font-space-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
+  min-height: 100vh;
+  background-color: var(--bg);
+  background-image: radial-gradient(circle, rgba(10,10,18,0.15) 1px, transparent 1px);
+  background-size: 22px 22px;
   color: var(--foreground);
   font-family: var(--font-space-grotesk), Arial, Helvetica, sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-space-mono), monospace;
+}
+
+@keyframes star-pulse {
+  0%, 100% {
+    transform: scale(0.85);
+    opacity: 0.22;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes modal-rise {
+  from {
+    transform: translateY(12px);
+    opacity: 0.92;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
