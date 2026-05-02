@@ -15,13 +15,14 @@ LIST_URL = f"{BASE_URL}/visit/events-exhibitions/"
 
 def _category_from_type(event_type: str | None) -> str:
     normalized = (event_type or "").lower().strip()
-    if normalized in {"workshop", "research workshop", "cornerstone research workshop"}:
+    if normalized in ("workshop", "research workshop", 
+                      "cornerstone research workshop"):
         return "workshops"
     if normalized == "drop-in activity":
         return "popup"
-    if normalized in {"presentation", "conference"}:
+    if normalized in ("presentation", "conference"):
         return "academic"
-    if normalized in {"screening", "performance"}:
+    if normalized in ("screening", "performance"):
         return "arts"
     return "academic"
 
