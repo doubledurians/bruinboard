@@ -32,8 +32,11 @@ export default function EventCard({ event, onClick }: EventCardProps) {
     <button
       type="button"
       onClick={() => onClick(event)}
-      className="mb-2 flex w-full cursor-pointer overflow-hidden rounded-lg border-[0.5px] border-[var(--border-m)] bg-[var(--card)] text-left transition-[border-color,box-shadow,transform] hover:-translate-y-px hover:border-[var(--black)] hover:shadow-[2px_2px_0_var(--black)]"
+      className="relative mb-2 flex w-full cursor-pointer overflow-hidden rounded-lg border-[0.5px] border-[var(--border-m)] bg-[var(--card)] text-left transition-[border-color,box-shadow,transform] hover:-translate-y-px hover:border-[var(--black)] hover:shadow-[2px_2px_0_var(--black)]"
     >
+      <span className="absolute right-3 top-2.5 font-mono text-[9px] uppercase tracking-[0.08em] text-[var(--muted)]">
+        {sourceLabel}
+      </span>
       <span className="w-1 shrink-0" style={{ background: color }} aria-hidden="true" />
       <span className="flex w-[58px] shrink-0 flex-col items-center justify-center border-r-[0.5px] border-[var(--border)] py-3.5 max-[480px]:w-[52px]">
         <span className="font-mono text-[26px] font-bold leading-none text-[var(--black)]">
@@ -57,12 +60,6 @@ export default function EventCard({ event, onClick }: EventCardProps) {
           ) : null}
         </span>
         <span className="mt-[7px] flex flex-wrap items-center gap-1.5">
-          <span
-            className="rounded-[20px] border-[0.5px] border-dashed px-2 py-[3px] font-mono text-[8px] font-bold uppercase tracking-[0.08em]"
-            style={{ borderColor: color, color }}
-          >
-            {sourceLabel}
-          </span>
           <span
             className="rounded-sm border-[0.5px] px-[7px] py-[3px] font-mono text-[8px] font-bold uppercase tracking-[0.07em]"
             style={{ borderColor: color, color, background: `color-mix(in srgb, ${color} 10%, transparent)` }}
